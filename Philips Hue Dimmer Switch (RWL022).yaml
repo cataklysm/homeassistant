@@ -143,16 +143,16 @@ action:
   - choose:
       - conditions:
           - "{{ type == 'initial_press' }}"
-        sequence: !input "button_{{ subtype }}_initial_press"
+        sequence: !input 'button_"{{ subtype }}"_initial_press'
       - conditions:
           - "{{ type == 'long_press' }}"
-        sequence: !input "button_{{ subtype }}_long_press"
+        sequence: !input 'button_"{{ subtype }}"_long_press'
       - conditions:
           - "{{ type == 'repeat' }}"
-        sequence: !input "button_{{ subtype }}_repeat"
+        sequence: !input 'button_"{{ subtype }}"_repeat'
       - conditions:
           - "{{ type == 'short_release' }}"
-        sequence: !input "button_{{ subtype }}_short_release"
+        sequence: !input 'button_"{{ subtype }}"_short_release'
       - conditions:
           - "{{ type == 'long_release' }}"
-        sequence: !input "button_{{ subtype }}_long_release"
+        sequence: !input 'button_"{{ subtype }}"_long_release'
