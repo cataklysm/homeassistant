@@ -143,7 +143,7 @@ action:
   - choose:
       - conditions: "{{ subtype == 1 }}"
         sequence:
-          - chosse:
+          - choose:
               - conditions: "{{ type == 'initial_press' }}"
                 sequence: !input "button_1_initial_press"
               - conditions: "{{ type == 'long_press' }}"
@@ -156,7 +156,7 @@ action:
                 sequence: !input "button_1_long_release"
       - conditions: "{{ subtype == 2 }}"
         sequence:
-          - chosse:
+          - choose:
               - conditions: "{{ type == 'initial_press' }}"
                 sequence: !input "button_2_initial_press"
               - conditions: "{{ type == 'long_press' }}"
@@ -169,7 +169,7 @@ action:
                 sequence: !input "button_2_long_release"
       - conditions: "{{ subtype == 3 }}"
         sequence:
-          - chosse:
+          - choose:
               - conditions: "{{ type == 'initial_press' }}"
                 sequence: !input "button_3_initial_press"
               - conditions: "{{ type == 'long_press' }}"
@@ -182,7 +182,7 @@ action:
                 sequence: !input "button_3_long_release"
       - conditions: "{{ subtype == 4 }}"
         sequence:
-          - chosse:
+          - choose:
               - conditions: "{{ type == 'initial_press' }}"
                 sequence: !input "button_4_initial_press"
               - conditions: "{{ type == 'long_press' }}"
