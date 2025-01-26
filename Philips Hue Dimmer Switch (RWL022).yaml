@@ -10,121 +10,121 @@ blueprint:
         device:
           integration: hue
     button_1_initial_press:
-      name: Power initial press
+      name: (Optional) Power initial press
       description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_1_long_press:
-      name: Power long press
+      name: (Optional) Power long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
     button_1_repeat:
-      name: Power repeat (occurs on long press)
+      name: (Optional) Power repeat (occurs on long press)
       description: Action to run on repeat
       default: []
       selector:
         action: {}
     button_1_short_release:
-      name: Power short release
+      name: (Optional) Power short release
       description: Action to run on short release
       default: []
       selector:
         action: {}
     button_1_long_release:
-      name: Power long release
+      name: (Optional) Power long release
       description: Action to run on long release
       default: []
       selector:
         action: {}
     button_2_initial_press:
-      name: Brightness up initial press
+      name: (Optional) Brightness up initial press
       description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_2_long_press:
-      name: Brightness up long press
+      name: (Optional) Brightness up long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
     button_2_repeat:
-      name: Brightness up repeat (occurs on long press)
+      name: (Optional) Brightness up repeat (occurs on long press)
       description: Action to run on repeat
       default: []
       selector:
         action: {}
     button_2_short_release:
-      name: Brightness up short release
+      name: (Optional) Brightness up short release
       description: Action to run on short release
       default: []
       selector:
         action: {}
     button_2_long_release:
-      name: Brightness up long release
+      name: (Optional) Brightness up long release
       description: Action to run on long release
       default: []
       selector:
         action: {}
     button_3_initial_press:
-      name: Brightness down initial press
+      name: (Optional) Brightness down initial press
       description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_3_long_press:
-      name: Brightness down long press
+      name: (Optional) Brightness down long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
     button_3_repeat:
-      name: Brightness down repeat (occurs on long press)
+      name: (Optional) Brightness down repeat (occurs on long press)
       description: Action to run on repeat
       default: []
       selector:
         action: {}
     button_3_short_release:
-      name: Brightness down short release
+      name: (Optional) Brightness down short release
       description: Action to run on short release
       default: []
       selector:
         action: {}
     button_3_long_release:
-      name: Brightness down long release
+      name: (Optional) Brightness down long release
       description: Action to run on long release
       default: []
       selector:
         action: {}
     button_4_initial_press:
-      name: Hue initial press
+      name: (Optional) Hue initial press
       description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_4_long_press:
-      name: Hue long press
+      name: (Optional) Hue long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
     button_4_repeat:
-      name: Hue repeat (occurs on long press)
+      name: (Optional) Hue repeat (occurs on long press)
       description: Action to run on repeat
       default: []
       selector:
         action: {}
     button_4_short_release:
-      name: Hue short release
+      name: (Optional) Hue short release
       description: Action to run on short release
       default: []
       selector:
         action: {}
     button_4_long_release:
-      name: Hue long release
+      name: (Optional) Hue long release
       description: Action to run on long release
       default: []
       selector:
