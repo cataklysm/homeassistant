@@ -8,9 +8,7 @@ blueprint:
       description: Pick the Hue Dimmer Switch v2 (RWL022)
       selector:
         device:
-          selector:
-            device:
-              integration: hue
+          integration: hue
     button_1_single_press:
       name: Button 1 (POWER) Single Press
       description: Action to run on single press
