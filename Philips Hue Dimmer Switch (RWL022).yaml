@@ -9,75 +9,123 @@ blueprint:
       selector:
         device:
           integration: hue
-    button_1_single_press:
-      name: Button 1 (POWER) Single Press
-      description: Action to run on single press
+    button_1_initial_press:
+      name: Power initial press
+      description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_1_long_press:
-      name: Button 1 (POWER) Long Press
+      name: Power long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
-    button_1_double_press:
-      name: Button 1 (POWER) Double Press
-      description: Action to run on double press
+    button_1_repeat:
+      name: Power repeat (occurs on long press)
+      description: Action to run on repeat
       default: []
       selector:
         action: {}
-    button_2_single_press:
-      name: Button 2 (BRIGHTNESS_UP) Single Press
-      description: Action to run on single press
+    button_1_short_release:
+      name: Power short release
+      description: Action to run on short release
+      default: []
+      selector:
+        action: {}
+    button_1_long_release:
+      name: Power long release
+      description: Action to run on long release
+      default: []
+      selector:
+        action: {}
+    button_2_initial_press:
+      name: Brightness up initial press
+      description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_2_long_press:
-      name: Button 2 (BRIGHTNESS_UP) Long Press
+      name: Brightness up long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
-    button_2_double_press:
-      name: Button 2 (BRIGHTNESS_UP) Double Press
-      description: Action to run on double press
+    button_2_repeat:
+      name: Brightness up repeat (occurs on long press)
+      description: Action to run on repeat
       default: []
       selector:
         action: {}
-    button_3_single_press:
-      name: Button 3 (BRIGHTNESS_DOWN) Single Press
-      description: Action to run on single press
+    button_2_short_release:
+      name: Brightness up short release
+      description: Action to run on short release
+      default: []
+      selector:
+        action: {}
+    button_2_long_release:
+      name: Brightness up long release
+      description: Action to run on long release
+      default: []
+      selector:
+        action: {}
+    button_3_initial_press:
+      name: Brightness down initial press
+      description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_3_long_press:
-      name: Button 3 (BRIGHTNESS_DOWN) Long Press
+      name: Brightness down long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
-    button_3_double_press:
-      name: Button 3 (BRIGHTNESS_DOWN) Double Press
-      description: Action to run on double press
+    button_3_repeat:
+      name: Brightness down repeat (occurs on long press)
+      description: Action to run on repeat
       default: []
       selector:
         action: {}
-    button_4_single_press:
-      name: Button 4 (HUE) Single Press
-      description: Action to run on single press
+    button_3_short_release:
+      name: Brightness down short release
+      description: Action to run on short release
+      default: []
+      selector:
+        action: {}
+    button_3_long_release:
+      name: Brightness down long release
+      description: Action to run on long release
+      default: []
+      selector:
+        action: {}
+    button_4_initial_press:
+      name: Hue initial press
+      description: Action to run on initial press (occurs also before long press)
       default: []
       selector:
         action: {}
     button_4_long_press:
-      name: Button 4 (HUE) Long Press
+      name: Hue long press
       description: Action to run on long press
       default: []
       selector:
         action: {}
-    button_4_double_press:
-      name: Button 4 (HUE) Double Press
-      description: Action to run on double press
+    button_4_repeat:
+      name: Hue repeat (occurs on long press)
+      description: Action to run on repeat
+      default: []
+      selector:
+        action: {}
+    button_4_short_release:
+      name: Hue short release
+      description: Action to run on short release
+      default: []
+      selector:
+        action: {}
+    button_4_long_release:
+      name: Hue long release
+      description: Action to run on long release
       default: []
       selector:
         action: {}
@@ -85,46 +133,26 @@ mode: restart
 max_exceeded: silent
 trigger:
   - platform: event
-    event_type: zha_event
+    event_type: hue_event
     event_data:
       device_id: !input "remote"
 action:
   - variables:
-      command: "{{ trigger.event.data.command }}"
+      type: "{{ trigger.event.data.type }}"
+      subtype: "{{ trigger.event.data.subtype }}"
   - choose:
       - conditions:
-          - "{{ command == 'on_short_release' }}"
-        sequence: !input "button_1_single_press"
+          - "{{ type == 'initial_press' }}"
+        sequence: !input "button_{{ subtype }}_initial_press"
       - conditions:
-          - "{{ command == 'on_hold' }}"
-        sequence: !input "button_1_long_press"
+          - "{{ type == 'long_press' }}"
+        sequence: !input "button_{{ subtype }}_long_press"
       - conditions:
-          - "{{ command == 'on_double_press' }}"
-        sequence: !input "button_1_double_press"
+          - "{{ type == 'repeat' }}"
+        sequence: !input "button_{{ subtype }}_repeat"
       - conditions:
-          - "{{ command == 'up_short_release' }}"
-        sequence: !input "button_2_single_press"
+          - "{{ type == 'short_release' }}"
+        sequence: !input "button_{{ subtype }}_short_release"
       - conditions:
-          - "{{ command == 'up_hold' }}"
-        sequence: !input "button_2_long_press"
-      - conditions:
-          - "{{ command == 'up_double_press' }}"
-        sequence: !input "button_2_double_press"
-      - conditions:
-          - "{{ command == 'down_short_release' }}"
-        sequence: !input "button_3_single_press"
-      - conditions:
-          - "{{ command == 'down_hold' }}"
-        sequence: !input "button_3_long_press"
-      - conditions:
-          - "{{ command == 'down_double_press' }}"
-        sequence: !input "button_3_double_press"
-      - conditions:
-          - "{{ command == 'off_short_release' }}"
-        sequence: !input "button_4_single_press"
-      - conditions:
-          - "{{ command == 'off_hold' }}"
-        sequence: !input "button_4_long_press"
-      - conditions:
-          - "{{ command == 'off_double_press' }}"
-        sequence: !input "button_4_double_press"
+          - "{{ type == 'long_release' }}"
+        sequence: !input "button_{{ subtype }}_long_release"
