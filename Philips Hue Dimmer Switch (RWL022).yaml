@@ -1,6 +1,6 @@
 blueprint:
   name: Philips Hue v2 Smart Dimmer Switch and Remote (RWL022)
-  description:
+  description: Philips Hue v2 Smart Dimmer Switch and Remote (RWL022)
   domain: automation
   input:
     remote:
